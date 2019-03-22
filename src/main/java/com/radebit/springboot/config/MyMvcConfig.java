@@ -1,8 +1,10 @@
 package com.radebit.springboot.config;
 
 
+import com.radebit.springboot.component.MyLocaleResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -32,7 +34,7 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
 //    }
 
     //新写法
-    @Bean
+    @Bean   //将组件注册在容器中
     public WebMvcConfigurer webMvcConfigurer(){
         WebMvcConfigurer adapter = new WebMvcConfigurer() {
             @Override
@@ -42,5 +44,10 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
             }
         };
         return adapter;
+    }
+
+    @Bean
+    public LocaleResolver localeResolver(){
+        return new MyLocaleResolver();
     }
 }

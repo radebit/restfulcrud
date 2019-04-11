@@ -48,16 +48,17 @@ public class MyMvcConfig implements WebMvcConfigurer {
                 registry.addViewController("/main.html").setViewName("dashboard");
             }
             //注册拦截器
-            @Override
-            public void addInterceptors(InterceptorRegistry registry) {
-                registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
-                        .excludePathPatterns(
-                                "/index.html",
-                                "/",
-                                "/user/login",
-                                "/asserts/**",
-                                "/webjars/**");
-            }
+//            @Override
+//            public void addInterceptors(InterceptorRegistry registry) {
+//                registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
+//                        .excludePathPatterns(
+//                                "/index.html",
+//                                "/",
+//                                "/user/login",
+//                                "/asserts/**",
+//                                "/webjars/**",
+//                                "/hello");
+//            }
         };
 
         return adapter;
